@@ -1,0 +1,77 @@
+name: Elixir
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  mix_test:
+    runs-on: ubuntu-18.04
+    env:
+      MIX_ENV: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # 1.10
+          - pair:
+              elixir: "1.10"
+              otp: 21
+
+          - pair:
+              elixir: "1.10"
+              otp: 22
+
+          - pair:
+              elixir: "1.10.3"
+              otp: 23
+
+          # 1.11
+          - pair:
+              elixir: "1.11"
+              otp: 21
+
+          - pair:
+              elixir: "1.11"
+              otp: 22
+
+          - pair:
+              elixir: "1.11"
+              otp: 23
+
+          - pair:
+              elixir: "1.11.4"
+              otp: 24
+
+          # 1.12
+          - pair:
+              elixir: "1.12"
+              otp: 22
+
+          - pair:
+              elixir: "1.12"
+              otp: 23
+
+          - pair:
+              elixir: "1.12"
+              otp: 24
+
+          - pair:
+              elixir: "1.12.3"
+              otp: 24
+
+          # 1.13
+          - pair:
+              elixir: "1.13.0"
+              otp: 22
+
+          - pair:
+              elixir: "1.13.0"
+              otp: 23
+
+          - pair:
+              elixir: "1.13.0"
+              otp: 24
+              stable: true

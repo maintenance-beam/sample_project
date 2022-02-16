@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  mix_test:
+    runs-on: ubuntu-18.04
+    # env:
+    #   MIX_ENV: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - pair:
+              elixir: "1.10"
+              otp: 21
+          - pair:
+              elixir: "1.13"
+              otp: 24     
+            lint: lint
+            # stable: true
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.pair.otp}}
+          elixir-version: ${{matrix.pair.elixir}}
+
+      - name: Install Dependencies
+        run: mix deps.get
+
+      - run: mix format --check-formatted
+        if: ${{ matrix.lint }}
+
+      - run: mix deps.unlock --check-unused
+        if: ${{ matrix.lint }}
+
+      - run: mix deps.compile
+
+      - name: Compile project
+        run: |
+          MIX_ENV=test mix compile --warnings-as-errors
+          MIX_ENV=dev mix compile --warnings-as-errors
+          MIX_ENV=prod mix compile --warnings-as-error
+        if: ${{ matrix.lint }}
+
+      - name: Run Credo
+        run: mix credo --ignore Credo.Check.Design.TagTODO
+        if: ${{ matrix.lint }}
+
+      - name: Generate docs
+        run: |
+          mix docs
+          test -f doc/index.html && echo "doc/index.html exists."
+          test -f doc/SampleProject.epub && echo "doc/SampleProject.epub exists."
+
+      - run: mix test
+
