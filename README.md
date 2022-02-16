@@ -19,12 +19,13 @@ You can copy, modify, distribute and create derivative work, even for commercial
 purposes, all without asking permission. Giving credits is appreciated though;
 you may link to this repository if you wish.
 
-  <p xmlns:dct="https://purl.org/dc/terms/">
-    <a rel="license" href="https://creativecommons.org/publicdomain/mark/1.0/">
-      <img src="https://i.creativecommons.org/p/mark/1.0/88x31.png"
-         style="border-style: none;" alt="Public Domain Mark" />
-    </a><br />
-    <a rel="license"
-       href="https://creativecommons.org/publicdomain/zero/1.0/">
-      <img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="Creative Commons Zero" />
-  </p>
+<p xmlns:dct="https://purl.org/dc/terms/">
+  <a rel="license" href="https://creativecommons.org/publicdomain/mark/1.0/">
+    <img src="https://i.creativecommons.org/p/mark/1.0/88x31.png"
+       style="border-style: none;" alt="Public Domain Mark" />
+  </a><br />
+  <a rel="license"
+     href="https://creativecommons.org/publicdomain/zero/1.0/">
+    <img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="Creative Commons Zero" />
+  </a>
+</p>
