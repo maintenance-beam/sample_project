@@ -7,3 +7,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_LOGIN: maintenance-beam-app
           ENABLE_GITHUB_API_PREVIEW: 'true'
+          MERGE_METHOD: REBASE
