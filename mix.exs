@@ -31,10 +31,9 @@ defmodule SampleProject.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-    {:ex_doc, "~> 0.28", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
-
 
   defp docs do
     [
@@ -42,8 +41,8 @@ defmodule SampleProject.MixProject do
       main: @name,
       authors: ["Eksperimental"],
       extras: [
-        "README.md": [filename: "readme", title: "Readme"],
-      ],
+        "README.md": [filename: "readme", title: "Readme"]
+      ]
     ]
   end
 end
