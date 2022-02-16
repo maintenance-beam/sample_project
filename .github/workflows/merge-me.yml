@@ -24,6 +24,7 @@ on:
 #           ENABLE_GITHUB_API_PREVIEW: 'true'
 jobs:
   merge-me:
+    runs-on: ubuntu-latest
     steps:
       - name: Merge me!
         uses: ridedott/merge-me-action@v2
