@@ -11,7 +11,7 @@ No Copyright
 Released to the Public Domain under the <a rel="license"
        href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero Universal version 1.0 license</a>.
 
-The author, 
+The author,
 <a href="https://github.com/eksperimental" rel="dct:creator">Eksperimental</a>
 has dedicated the work to the public domain by waiving all copyright and related or neighboring rights to this work worldwide under copyright law including all related and neighboring rights, to the extent allowed by law.
 
