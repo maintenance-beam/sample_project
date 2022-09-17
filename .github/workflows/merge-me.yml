@@ -3,9 +3,7 @@ on:
   workflow_run:
     types:
       - completed
-    workflows:
-      - 'Elixir'
-      - 'CI'
+    workflows: [CI]
 jobs:
   merge-me:
     name: Merge me!
@@ -16,4 +14,4 @@ jobs:
         uses: ridedott/merge-me-action@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_LOGIN: maintenance-beam-app
+          GITHUB_LOGIN:  maintenance-beam-app
