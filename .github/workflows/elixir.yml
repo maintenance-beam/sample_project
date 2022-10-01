@@ -1,73 +1,97 @@
-name: Elixir
+# name: Elixir
 
-on:
-  pull_request:
-  push:
-    branches:
-      - '*'
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#       - '*'
 
-jobs:
-  mix_test:
-    runs-on: ubuntu-18.04
-    env:
-      MIX_ENV: test
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          # 1.10
-          - pair:
-              elixir: "1.10"
-              otp: 21
+# jobs:
+#   mix_test:
+#     runs-on: ubuntu-18.04
+#     env:
+#       MIX_ENV: test
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         include:
+#           # 1.10
+#           - pair:
+#               elixir: "1.10"
+#               otp: 21
 
-          - pair:
-              elixir: "1.10"
-              otp: 22
+#           - pair:
+#               elixir: "1.10"
+#               otp: 22
 
-          - pair:
-              elixir: "1.10.3"
-              otp: 23
+#           - pair:
+#               elixir: "1.10.3"
+#               otp: 23
 
-          # 1.11
-          - pair:
-              elixir: "1.11"
-              otp: 21
+#           # 1.11
+#           - pair:
+#               elixir: "1.11"
+#               otp: 21
 
-          - pair:
-              elixir: "1.11"
-              otp: 22
+#           - pair:
+#               elixir: "1.11"
+#               otp: 22
 
-          - pair:
-              elixir: "1.11"
-              otp: 23
+#           - pair:
+#               elixir: "1.11"
+#               otp: 23
 
-          - pair:
-              elixir: "1.11.4"
-              otp: 24
+#           - pair:
+#               elixir: "1.11.4"
+#               otp: 24
 
-          # 1.12
-          - pair:
-              elixir: "1.12"
-              otp: 22
+#           # 1.12
+#           - pair:
+#               elixir: "1.12"
+#               otp: 22
 
-          - pair:
-              elixir: "1.12"
-              otp: 23
+#           - pair:
+#               elixir: "1.12"
+#               otp: 23
 
-          - pair:
-              elixir: "1.12"
-              otp: 24
+#           - pair:
+#               elixir: "1.12"
+#               otp: 24
 
-          # 1.13
-          - pair:
-              elixir: "1.13"
-              otp: 22
+#           # 1.13
+#           - pair:
+#               elixir: "1.13"
+#               otp: 22
 
-          - pair:
-              elixir: "1.13"
-              otp: 23
+#           - pair:
+#               elixir: "1.13"
+#               otp: 23
 
-          - pair:
-              elixir: "1.13"
-              otp: 24
-              stable: true
+#           - pair:
+#               elixir: "1.13"
+#               otp: 24
+#               stable: true
+
+#     steps:
+#       - uses: actions/checkout@v2
+
+#       - uses: erlef/setup-beam@v1
+#         with:
+#           otp-version: ${{matrix.pair.otp}}
+#           elixir-version: ${{matrix.pair.elixir}}
+
+#       - name: Install Dependencies
+#         run: mix deps.get
+
+#       - run: mix format --check-formatted
+#         if: ${{ matrix.stable }}
+
+#       - run: mix deps.unlock --check-unused
+#         if: ${{ matrix.stable }}
+
+#       - run: mix deps.compile
+
+#       - run: mix compile --warnings-as-errors
+#         if: ${{ matrix.stable }}
+
+#       - run: mix test
